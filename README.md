@@ -5,7 +5,12 @@ A proxy between Javascript websocket client (browser) and quasselcore
 ## How to use
 _Work in progress_
 ### On the server
-Install the module with: `npm install quassel-proxy`
+Install the proxy with: 
+```
+git clone https://github.com/magne4000/quassel-proxy.git
+cd quassel-proxy
+npm install --production
+```
 
 and run the following command: `node lib/quassel-proxy.js --port 64004`
 
