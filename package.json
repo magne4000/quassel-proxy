@@ -1,0 +1,47 @@
+{
+  "name": "quassel-proxy",
+  "description": "Quasselcore event (libquassel) to websocket (socket.io)",
+  "version": "0.0.1",
+  "homepage": "https://github.com/magne4000/quassel-proxy",
+  "author": {
+    "name": "Joël Charles",
+    "email": "joel.charles91@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/magne4000/quassel-proxy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/magne4000/quassel-proxy/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/magne4000/quassel-proxy/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/quassel-proxy",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt": "~0.4.4"
+  },
+  "keywords": [
+    "quassel"
+  ],
+  "dependencies": {
+    "fast-json-patch": "^0.3.6",
+    "libquassel": "*",
+    "nomnom": "^1.7.0",
+    "socket.io": "^1.0.0"
+  }
+}

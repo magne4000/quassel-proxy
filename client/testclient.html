@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="socket.io-1.0.4.js"></script>
+<script src="libquassel.js"></script>
+<script src="json-patch.js"></script>
+</head>
+<body>
+<form name="qform">
+  <span>WebSocket infos : </span>
+  <input id="wshost" type="text" autofocus placeholder="websocket host">
+  <input id="wsport" type="text" placeholder="websocket port"><br>
+  <span>Quasselcore infos : </span>
+  <input id="host" type="text" placeholder="Quassel host">
+  <input id="port" type="text" placeholder="Quassel port">
+  <input id="user" type="text" placeholder="Quassel user">
+  <input id="password" type="password" placeholder="Quassel password">
+  <input type="submit" value="Connect">
+  <div style="width:100%;" id="g"></div>
+</form>
+<script src="init.js"></script>
+</body>
+</html>
