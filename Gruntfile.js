@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
+        src: ['client/init.js', 'client/json-patch.js', 'client/libquassel.js', 'client/socket.io-1.0.4.js', 'client/init.js'],
         dest: 'dist/<%= pkg.name %>.js'
       },
     },
@@ -31,31 +31,7 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.min.js'
       },
     },
-    nodeunit: {
-      files: ['test/**/*_test.js']
-    },
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc'
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      lib: {
-        options: {
-          jshintrc: 'lib/.jshintrc'
-        },
-        src: ['lib/**/*.js']
-      },
-      test: {
-        src: ['test/**/*.js']
-      },
-    },
     watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
-      },
       lib: {
         files: '<%= jshint.lib.src %>',
         tasks: ['jshint:lib', 'nodeunit']
@@ -70,11 +46,9 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'nodeunit', 'concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify']);
 
 };

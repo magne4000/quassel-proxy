@@ -1,0 +1,87 @@
+@import "globals";
+
+.modal-content {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    .border-radius;
+}
+
+.modal-footer {
+    border: 0;
+    margin-top: 0;
+    background-color: #f4f4f4;
+    -webkit-border-radius: 0 0 3px 3px;
+    -moz-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+}
+
+.modal-header {
+    border: 0;
+}
+
+.btn {
+    border: 0;
+}
+
+.btn-primary {
+    color: white;
+    background-color: @brand-color;
+    border: none;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: darken(@brand-color, 5);
+}
+
+.btn-primary:disabled {
+    background-color: #40B3B3;
+}
+
+.btn-default {
+    color: white;
+    background-color: #787878;
+    border: none;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active {
+    color: white;
+    background-color: darken(#6c6c6c, 5);
+}
+
+.form-control,
+.form-control:focus,
+.form-control:active {
+    border: 2px solid #C8C8C8;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.form-control:focus,
+.form-control:active {
+    border: 2px solid @brand-color;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Roboto;
+    letter-spacing: -1px;
+}

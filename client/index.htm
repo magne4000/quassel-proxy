@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Quassel Web App</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="Quassel Web App">
+    <meta name="author" content="Johannes Siipola">
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="login-page">
+<div id="container">	
+    <div id="header"><span class="quassel-logo"></span>Quassel Web App</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+			<form role="form" action="app.htm">
+				<div class="col-md-8 row login-container">
+					<div class="col-md-6">
+						<h1>Websocket server</h1>
+						<div class="form-group">
+							<label for="wshost">Websocket host</label>
+							<input type="text" class="form-control" id="wshost" />
+						</div>
+						<div class="form-group">
+							<label for="wsport">Websocket port</label>
+							<input type="text" class="form-control" id="wsport" />
+						</div>
+					</div>
+					<div class="col-md-6">
+						<h1>Connect to Quassel Core</h1>
+						<div class="form-group">
+							<label for="host">Server address</label>
+							<input type="text" class="form-control" id="host" />
+						</div>
+						<div class="form-group">
+							<label for="server">Server port</label>
+							<input type="text" class="form-control" id="port" value="4242" />
+						</div>
+						<div class="form-group">
+							<label for="user">User name</label>
+							<input type="text" class="form-control" id="user" />
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" class="form-control" id="password" />
+						</div>
+						<button type="submit" class="btn btn-primary">Connect</button>
+					</div>
+				</div>
+			</form>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/socket.io-1.0.4.js"></script>
+<script src="js/libquassel.js"></script>
+<script src="js/json-patch.js"></script>
+<script src="js/events.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

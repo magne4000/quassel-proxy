@@ -11,6 +11,7 @@ git clone https://github.com/magne4000/quassel-proxy.git
 cd quassel-proxy
 npm install --production
 ```
+or to update `npm update`
 
 and run the following command: `node lib/quassel-proxy.js --port 64004`
 

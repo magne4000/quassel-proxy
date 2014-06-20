@@ -1,0 +1,54 @@
+<div id="header"><span class="quassel-logo"></span>Quassel Web App</div>
+<div id="buffer-pane" class="animation">
+	<div class="buffer-bottom-bar"><a id="hide-buffers" ></a><a style="display:none" id="show-buffers" ></a></div>
+</div>
+<div id="nick-pane" class="animation">
+	<div class="user-group"><span class="expanded" data-target="users-operator"></span><span class="group-name">operators</span></div>
+	<div class="group-users clearfix" id="users-operator">
+		<div class="channel" data-channel-id="ircnet-quassel"><span class="user-icon user-icon-away"></span><span class="user-name">user1</span></div>
+		<div class="channel" data-channel-id="ircnet-ubuntu"><span class="user-icon user-icon-active"></span><span class="user-name">user2</span></div>
+	</div>
+	<div class="user-group"><span class="expanded" data-target="users-voiced"></span><span class="group-name">voiced</span></div>
+	<div class="group-users clearfix" id="users-voiced">
+		<div class="user" data-channel-id="ircnet-quassel"><span class="user-icon user-icon-active"></span><span class="user-name">user3</span></div>
+		<div class="user" data-channel-id="ircnet-ubuntu"><span class="user-icon user-icon-active"></span><span class="user-name">user4</span></div>
+	</div>
+	<div class="user-group"><span class="expanded" data-target="users-user"></span><span class="group-name">users</span></div>
+	<div class="group-users clearfix" id="users-user">
+		<div class="user" data-channel-id="ircnet-quassel"><span class="user-icon user-icon-active"></span><span class="user-name">user5</span></div>
+		<div class="user" data-channel-id="ircnet-ubuntu"><span class="user-icon user-icon-away"></span><span class="user-name">user6</span></div>
+	</div>
+	<div class="buffer-bottom-bar"><a id="hide-nicks" ></a><a style="display:none" id="show-nicks" ></a></div>
+</div>
+<div id="center" class="animation">
+	<div id="topic">Quassel IRC - http://quassel-irc.org || Latest: 0.10.0 || Mailing Lists: http://lists.quassel-irc.org || Tracker: http://bugs.quassel-irc.org || Activity RSS: #quassel-announce || German: #quassel.de || Quassel on Android: #quasseldroid; on iOS: #woboquassel</div>
+	<div id="backlog-container">
+		<ul class="backlog">
+		</ul>
+	</div>
+	<div class="input">
+		<form><input type="text" placeholder="Enter your message here"></form>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modal-join-channel" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Join a channel on <span id="join-network-name">{network name}</span></h4>
+			</div>
+			<div class="modal-body">
+				<form >
+					<div class="form-group">
+						<input type="text" class="form-control" id="modal-join-channel-name" placeholder="Enter channel name">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary">Join channel</button>
+			</div>
+		</div>
+	</div>
+</div>

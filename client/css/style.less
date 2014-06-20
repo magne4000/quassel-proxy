@@ -1,0 +1,323 @@
+@import "globals";
+@import "bootstrap-overrides";
+
+body {
+    background-color: #EAEAF8;
+    font-size: 16px;
+    font-family: "Roboto";
+    font-weight: 200;
+}
+
+#container {
+    overflow: hidden;
+    width: 100%;
+    //min-width: 960px;
+    /* float: left; */
+}
+
+#buffer-pane {
+    background-color: #39383E;
+    float: left;
+    color: @text-color;
+    width: @panel-width;
+    position: relative;
+    overflow: auto;
+}
+
+.animation {
+    -webkit-transition: 0.5s margin ease-in-out;
+    -moz-transition: 0.5s margin ease-in-out;
+    -o-transition: 0.5s margin ease-in-out;
+    -ms-transition: 0.5s margin ease-in-out;
+    transition: 0.5s margin ease-in-out;
+}
+
+.animation > * {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+#nick-pane {
+    background-color: #39383E;
+    float: right;
+    width: @panel-width;
+    color: @text-color;
+    position: relative;
+    overflow: auto;
+}
+
+#center {
+    margin-left: @panel-width;
+    margin-right: @panel-width;
+    font-size: 15px;
+}
+
+#topic {
+    height: 32px;
+    line-height: 32px;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: white;
+}
+
+#header {
+    background-color: @brand-color;
+    height: 48px;
+    line-height: 48px;
+    color: @text-color;
+}
+
+.network, .channel, .user, .user-group {
+    height: 32px;
+    width: @panel-width;
+    display: block;
+
+    &:hover {
+        background-color: darken(@pane-color, 5);
+    }
+}
+
+.network-name, .group-name {
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    float: left;
+    opacity: 0.75;
+    font-family: "Roboto Condensed";
+    text-transform: uppercase;
+}
+
+.expanded {
+    .icon;
+    display: inline-block;
+    float: left;
+    opacity: 0.5;
+    background-image: url(../images/expander-expanded.png);
+    cursor: pointer;
+}
+
+.collapsed {
+    .icon;
+    display: inline-block;
+    float: left;
+    opacity: 0.5;
+    background-image: url(../images/expander-collapsed.png);
+    cursor: pointer;
+}
+
+.user-icon {
+    .icon;
+    display: inline-block;
+    float: left;
+}
+
+.active {
+    background-color: black;
+    font-weight: normal;
+}
+
+.active .channel-name {
+    opacity: 1;
+}
+
+.user-icon-active {
+    background-image: url(../images/icon-active.png)
+}
+
+.user-icon-away {
+    background-image: url(../images/icon-away.png)
+}
+
+.user-name {
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    float: left;
+    opacity: 0.75;
+}
+
+.channel-icon {
+    .icon;
+    display: inline-block;
+    float: left;
+    //background-color: blue;
+}
+
+.channel-name {
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    float: left;
+    opacity: 0.75;
+}
+
+.buffer-bottom-bar {
+    min-height: 32px;
+    background-color: darken(@pane-color, 5);
+    display: inline-block;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
+#hide-buffers {
+    width: 32px;
+    height: 32px;
+    display: block;
+    right: 0;
+    position: absolute;
+    background-image: url(../images/hide-pane-left.png);
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+        background-color: darken(@pane-color, 8);
+    }
+
+}
+
+#show-buffers {
+    width: 32px;
+    height: 32px;
+    display: block;
+    right: 0;
+    position: absolute;
+    background-image: url(../images/hide-pane-right.png);
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+        background-color: darken(@pane-color, 8);
+    }
+}
+
+#hide-nicks {
+    width: 32px;
+    height: 32px;
+    display: block;
+    left: 0;
+    position: absolute;
+    background-image: url(../images/hide-pane-right.png);
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+        background-color: darken(@pane-color, 8);
+    }
+}
+
+#show-nicks {
+    width: 32px;
+    height: 32px;
+    display: block;
+    left: 0;
+    position: absolute;
+    background-image: url(../images/hide-pane-left.png);
+    cursor: pointer;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+        background-color: darken(@pane-color, 8);
+    }
+}
+
+.network-channels, .group-users {
+    display: block;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.quassel-logo {
+    width: 24px;
+    height: 24px;
+    margin-left: 12px;
+    margin-right: 8px;
+    vertical-align: text-bottom;
+    display: inline-block;
+    background-image: url(../images/quassel-logo.png);
+}
+
+.add-channel {
+    .icon;
+    opacity: 0.5;
+    display: inline-block;
+    float: right;
+    background-image: url(../images/add-channel.png);
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.input input {
+    width: 100%;
+    border: 0;
+    height: 32px;
+    padding-left: 8px;
+    outline: none;
+}
+
+#backlog-container {
+    overflow: auto;
+}
+
+ul.backlog {
+    margin: 0;
+    padding: 4px;
+    border-spacing: 0;
+}
+
+.backlog li {
+    display: table-row;
+}
+
+.backlog .timestamp {
+    padding-right: 8px;
+    font-family: "Droid Sans Mono", monospace;
+    font-size: 14px;
+    display: table-cell;
+    opacity: 0.5;
+}
+
+.backlog .nick {
+    padding-right: 8px;
+    font-weight: 400;
+    display: table-cell;
+}
+
+.backlog .message {
+    display: table-cell;
+}
+
+.login-page {
+    background-color: @pane-color;
+}
+
+.login-container {
+    background-color: white;
+    padding: 16px;
+
+    margin: 16px;
+    margin-top: 64px;
+    .border-radius;
+
+    h1 {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
