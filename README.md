@@ -21,7 +21,7 @@ The proxy is now running.
 
 ### In the browser
 #### Demo
-With the proxy running, open testclient.html in your favorite browser.
+With the proxy running, open index.html (from client directory) in your favorite browser.
 Fill in the inputs :
 * Websocket host is the ip/name of the server your proxy is running on
 * Websocket port is the port specified when the proxy was launched (here 64004)
@@ -32,15 +32,20 @@ When hitting _Connect_ button, you should start seeing some responses from the q
 ## Technical details
 The proxy server acts like a basic libquassel client.
 
-By default, events are not streamed to the browser. To do so, the client must register the events it wants:
+By default, events are not streamed to the browser.
+
 ```javascript
-socket.emit('register', ['buffer.highlight', 'login', 'backlog', 'change']);
+socket.emit('register', 'buffer.highlight']);
+socket.emit('register', 'login']);
+//...
 ```
+
+Using EventReceiver class allows to triggers events callbacks in the wanted order. It is also used to automatically register events (see _script.js_).
 
 To be able to use client side libquassel as if we were using it directly on the server, we must sync the whole NetworkCollection tree Object between the server and the client.
 It can be a little long to fetch the tree the first time, but when modifications are made server side thereafter, only patches are sent to the client (thanks to Object.Observe method).
 
-For more details, see _init.js_ file.
+For more details, see _script.js_ file.
 
 ## Documentation
 _(Coming soon)_
