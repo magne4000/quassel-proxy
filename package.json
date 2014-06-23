@@ -1,7 +1,7 @@
 {
   "name": "quassel-proxy",
   "description": "Quasselcore event (libquassel) to websocket (socket.io)",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/magne4000/quassel-proxy",
   "author": {
     "name": "Joël Charles",

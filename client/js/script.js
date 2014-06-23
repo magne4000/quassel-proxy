@@ -1,4 +1,4 @@
-var networks = null;
+var networks = null, socket = null;
 
 function stripname(s) {
 	if (!s) return '';
@@ -88,6 +88,16 @@ function showinterface() {
 		});
 		$(".backlog").html(backlogs.join("\n"));
 		$(".backlog").data('currentBufferId', bufferId);
+    });
+    
+    $(document).on("submit", "form#messageform", function (evt) {
+        evt.preventDefault();
+        if (socket !== null) {
+            var bufferId = parseInt($(".backlog").data('currentBufferId'), 10);
+            var message = $("#messagebox").val();
+            $("#messagebox").val("");
+            socket.emit('sendMessage', bufferId, message);
+        }
     });
 
     $("#hide-buffers").click(function () {
@@ -181,7 +191,7 @@ $(document).ready(function () {
 		var password = $("#password").val();
 		
 		console.log('ws://'+wshost+':'+wsport);
-		var socket = io.connect('ws://'+wshost+':'+wsport);
+		socket = io.connect('ws://'+wshost+':'+wsport);
 		
 		socket.on("connected", function() {
 			$.get($("form").attr("action"), function(data){
