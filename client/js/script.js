@@ -75,7 +75,7 @@ function showinterface() {
         console.log("bluu");
     });
 	
-	$(document).on("click", ".channel", function () {
+	$(document).on("click", ".channel, .network .network-name", function () {
         var bufferId = parseInt($(this).data("bufferId"), 10);
 		var buffer = networks.findBuffer(bufferId);
 		var backlogs = [];
@@ -116,7 +116,7 @@ function showinterface() {
         $("#buffer-pane").css("margin-left", "0px");
         $("#buffer-pane").children().css("opacity", "1");
         $("#center").css("margin-left", "200px");
-	};
+	}
 	
     $("#show-buffers").click(showBuffers);
 	
@@ -151,9 +151,8 @@ function showinterface() {
 }
 
 function addnetwork(name) {
-	name = stripname(name);
 	var div_network =
-	$('<div class="network">' + 
+	$('<div class="network" id="network-'+name+'">' + 
 		'<span class="expanded" data-target="'+name+'-channels" ></span>' +
 		'<span class="network-name">'+name+'</span>' +
 		'<a class="add-channel" data-network="'+name+'" data-toggle="modal" data-target="#modal-join-channel" title="Join channel"></a>' +
@@ -169,6 +168,10 @@ function addbuffer(networkname, bufferId, name) {
 		'<span class="channel-name">'+name+'</span>' + 
 	'</div>');
 	$('#'+networkname+'-channels').append(div_channels);
+}
+
+function setstatusbuffer(networkname, bufferId) {
+	$('#network-'+networkname).data("bufferId", bufferId);
 }
 
 $(document).ready(function () {
@@ -239,7 +242,12 @@ $(document).ready(function () {
 			er.on('network.addbuffer', function(next, networkId, bufferId) {
 				console.log('network.addbuffer');
 				var network = networks.get(networkId);
-				addbuffer(network.networkName, bufferId, network.getBufferCollection().getBuffer(bufferId).name);
+				var buffer = network.getBufferCollection().getBuffer(bufferId);
+				if (buffer.isStatusBuffer()) {
+				    setstatusbuffer(network.networkName, bufferId);
+				} else {
+				    addbuffer(network.networkName, bufferId, buffer.name);
+				}
 				next();
 			}).after('network.init');
 
