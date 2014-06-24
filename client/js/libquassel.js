@@ -1,1 +1,1 @@
-../node_modules/libquassel/client/libquassel.js
+../../node_modules/libquassel/client/libquassel.js
