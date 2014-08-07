@@ -2,6 +2,8 @@
 
 A proxy between Javascript websocket client (browser) and quasselcore
 
+:heavy_exclamation_mark: This project was just a POC and will not be updated anymore, the real usable one is [quassel-webserver](https://github.com/magne4000/quassel-webserver)
+
 ## How to use
 _Work in progress_
 ### On the server
